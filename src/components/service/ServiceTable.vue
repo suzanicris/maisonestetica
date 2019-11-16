@@ -1,6 +1,6 @@
 <template>
   <b-table
-    :data="clients"
+    :data="services"
     :striped="true"
     :hoverable="true"
     class="is-fullwidth"
@@ -9,28 +9,24 @@
     >
     <template slot-scope="props">
       <b-table-column field="id" label="Id">{{ props.row.id }}</b-table-column>
-      <b-table-column field="name" label="Nome">{{
+      <b-table-column field="name" label="Serviço">{{
         props.row.name
       }}</b-table-column>
-      <b-table-column field="cpf" label="CPF" width="150">{{
-        props.row.cpf
+      <b-table-column field="cost" label="Preço" width="120">{{
+        props.row.cost
       }}</b-table-column>
-      <b-table-column
-        field="birthday"
-        label="Aniversário"
-        width="50"
-        centered
-        >{{ props.row.birthday }}</b-table-column
-      >
-      <b-table-column field="city" label="Cidade">{{
-        props.row.city
+      <b-table-column field="time" label="Tempo estimado">{{
+        props.row.time
+      }}</b-table-column>
+      <b-table-column field="employee" label="Responsável">{{
+        props.row.employee
       }}</b-table-column>
     </template>
 
     <template slot="empty">
       <section class="section">
         <div class="content has-text-grey has-text-centered">
-          <p>Nenhum cliente encontrado</p>
+          <p>Nenhum funcionário encontrado</p>
         </div>
       </section>
     </template>
@@ -39,10 +35,10 @@
 
 <script>
 export default {
-  name: "ClientTable",
+  name: "ServiceTable",
 
   props: {
-    clients: {
+    services: {
       type: Array,
       required: false,
       default: () => []
@@ -50,8 +46,8 @@ export default {
   },
 
   methods: {
-    selected(client) {
-      this.$emit("clientDetails", client.id);
+    selected(services) {
+      this.$emit("servicesDetails", services.id);
     }
   }
 };

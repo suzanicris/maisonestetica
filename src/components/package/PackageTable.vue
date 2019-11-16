@@ -1,6 +1,6 @@
 <template>
   <b-table
-    :data="clients"
+    :data="packages"
     :striped="true"
     :hoverable="true"
     class="is-fullwidth"
@@ -12,25 +12,18 @@
       <b-table-column field="name" label="Nome">{{
         props.row.name
       }}</b-table-column>
-      <b-table-column field="cpf" label="CPF" width="150">{{
-        props.row.cpf
+      <b-table-column field="cost" label="Valor">{{
+        props.row.cost
       }}</b-table-column>
-      <b-table-column
-        field="birthday"
-        label="Aniversário"
-        width="50"
-        centered
-        >{{ props.row.birthday }}</b-table-column
-      >
-      <b-table-column field="city" label="Cidade">{{
-        props.row.city
+      <b-table-column field="off" label="Desconto" centered>{{
+        props.row.off
       }}</b-table-column>
     </template>
 
     <template slot="empty">
       <section class="section">
         <div class="content has-text-grey has-text-centered">
-          <p>Nenhum cliente encontrado</p>
+          <p>Nenhum funcionário encontrado</p>
         </div>
       </section>
     </template>
@@ -39,10 +32,10 @@
 
 <script>
 export default {
-  name: "ClientTable",
+  name: "PackageTable",
 
   props: {
-    clients: {
+    packages: {
       type: Array,
       required: false,
       default: () => []
@@ -50,8 +43,8 @@ export default {
   },
 
   methods: {
-    selected(client) {
-      this.$emit("clientDetails", client.id);
+    selected(packages) {
+      this.$emit("packagesDetails", packages.id);
     }
   }
 };

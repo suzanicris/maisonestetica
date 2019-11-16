@@ -1,8 +1,17 @@
 <template>
-  <div class="row flex-end mb-16">
-    <b-input v-model="search" class="search" @keydown.enter="buscar" :placeholder="placeholder"></b-input>
-    <b-button class="is-primary" @click="buscar">Buscar</b-button>
-  </div>
+  <b-field class="mb-16" position="is-right">
+    <b-input
+      v-model="search"
+      class="search"
+      @keydown.enter="buscar"
+      :placeholder="placeholder"
+      type="search"
+      icon="search"
+    ></b-input>
+    <p class="control">
+      <b-button class="is-primary" @click="buscar">Buscar</b-button>
+    </p>
+  </b-field>
 </template>
 
 <script>

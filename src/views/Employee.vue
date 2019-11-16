@@ -1,15 +1,15 @@
 <template>
   <div class="section">
     <div class="row space-between mb-16">
-      <h1>Cadastro de Cliente</h1>
-      <b-button type="is-secondary" @click="$router.push('/clientes/novo')"
+      <h1>Cadastro de Funcionário</h1>
+      <b-button type="is-secondary" @click="$router.push('/funcionarios/novo')"
         >Adicionar novo</b-button
       >
     </div>
 
     <div class="container">
-      <Search placeholder="Busque por nome ou CPF" @buscar="search" />
-      <ClientTable :clients="clients" @clientDetails="goTo" />
+      <Search placeholder="Busque funcionário por nome" @buscar="search" />
+      <EmployeeTable :employees="employees" @employeeDetails="goTo" />
       <Pagination
         :total="200"
         @changeCurrentPage="changePage"
@@ -22,50 +22,50 @@
 <script>
 import _ from "lodash";
 import Search from "@/components/Search";
-import ClientTable from "@/components/client/ClientTable";
+import EmployeeTable from "@/components/employee/EmployeeTable";
 import Pagination from "@/components/Pagination";
 
 export default {
-  name: "Client",
+  name: "Employee",
+
   components: {
     Search,
-    ClientTable,
+    EmployeeTable,
     Pagination
   },
 
   data() {
     return {
-      clients: [
+      employees: [
         {
           id: 1,
           name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
+          status: true,
+          email: "func@gmail.com"
         },
         {
+          id: 2,
           name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
+          status: true,
+          email: "func@gmail.com"
         },
         {
+          id: 3,
           name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
+          status: true,
+          email: "func@gmail.com"
         },
         {
+          id: 4,
           name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
+          status: true,
+          email: "func@gmail.com"
         },
         {
+          id: 5,
           name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
+          status: true,
+          email: "func@gmail.com"
         }
       ]
     };
@@ -81,13 +81,13 @@ export default {
     },
 
     goTo: function(id) {
-      this.$router.push(`/clientes/${id}`);
+      this.$router.push(`/funcionarios/${id}`);
     }
   },
 
   computed: {
     isEmpty() {
-      return _.isEmpty(this.clients);
+      return _.isEmpty(this.employees);
     }
   }
 };
