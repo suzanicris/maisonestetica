@@ -43,8 +43,8 @@ export default {
   },
 
   methods: {
-    selected(products) {
-      this.$emit("productsDetails", products.id);
+    selected(product) {
+      this.$emit("productDetails", product.id);
     }
   }
 };

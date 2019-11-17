@@ -15,6 +15,28 @@
           <b-input v-model="name"></b-input>
         </b-field>
 
+        <h3>Preço final</h3>
+
+        <b-field grouped>
+          <b-field label="Valor bruto" expanded>
+            <b-input v-model="cost" disabled></b-input>
+          </b-field>
+          <b-field
+            label="Valor final"
+            expanded
+            :type="{ 'is-danger': $v.finalCost.$error }"
+            :message="{
+              'Campo obrigatório': $v.finalCost.$error && !$v.finalCost.required
+            }"
+          >
+            <b-input v-model="finalCost"></b-input>
+          </b-field>
+          <b-field label="Desconto (%)" expanded>
+            <b-input v-model="off" type="number"></b-input>
+          </b-field>
+        </b-field>
+      </div>
+      <div class="column">
         <h3>Lista de serviços</h3>
 
         <label class="label">Procurar serviço</label>
@@ -41,29 +63,7 @@
         >
           Campo obrigatório
         </p>
-
-        <h3>Preço final</h3>
-
-        <b-field grouped>
-          <b-field label="Valor bruto" expanded>
-            <b-input v-model="cost" disabled></b-input>
-          </b-field>
-          <b-field
-            label="Valor final"
-            expanded
-            :type="{ 'is-danger': $v.finalCost.$error }"
-            :message="{
-              'Campo obrigatório': $v.finalCost.$error && !$v.finalCost.required
-            }"
-          >
-            <b-input v-model="finalCost"></b-input>
-          </b-field>
-          <b-field label="Desconto (%)" expanded>
-            <b-input v-model="off" type="number"></b-input>
-          </b-field>
-        </b-field>
       </div>
-      <div class="column"></div>
     </div>
 
     <div class="buttons">

@@ -3,19 +3,51 @@
     <img src="@/assets/logo.png" width="210" />
     <b-menu>
       <b-menu-list label="Geral">
-        <b-menu-item icon="information-outline" label="Início" @click="goTo('/')"></b-menu-item>
-        <b-menu-item icon="information-outline" label="Agendamento" @click="goTo('/agendamento')"></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Início"
+          @click="goTo('/')"
+        ></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Agendamento"
+          @click="goTo('/agendamento')"
+        ></b-menu-item>
       </b-menu-list>
       <b-menu-list label="Cadastro">
-        <b-menu-item icon="information-outline" label="Clientes" @click="goTo('/clientes')"></b-menu-item>
-        <b-menu-item icon="information-outline" label="Funcionários" @click="goTo('/funcionarios')"></b-menu-item>
-        <b-menu-item icon="information-outline" label="Pacotes" @click="goTo('/pacotes')"></b-menu-item>
-        <b-menu-item icon="information-outline" label="Produtos" @click="goTo('/produtos')"></b-menu-item>
-        <b-menu-item icon="information-outline" label="Serviços" @click="goTo('/servicos')"></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Clientes"
+          @click="goTo('/clientes')"
+        ></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Funcionários"
+          @click="goTo('/funcionarios')"
+        ></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Pacotes"
+          @click="goTo('/pacotes')"
+        ></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Produtos"
+          @click="goTo('/produtos')"
+        ></b-menu-item>
+        <b-menu-item
+          icon="information-outline"
+          label="Serviços"
+          @click="goTo('/servicos')"
+        ></b-menu-item>
       </b-menu-list>
       <b-menu-list label="Gerenciar">
-      <b-menu-item icon="information-outline" label="Relatórios" @click="goTo('/relatorio   ')"></b-menu-item>
-    </b-menu-list> 
+        <b-menu-item
+          icon="information-outline"
+          label="Relatórios"
+          @click="goTo('/relatorio   ')"
+        ></b-menu-item>
+      </b-menu-list>
     </b-menu>
   </div>
 </template>
@@ -30,9 +62,9 @@ export default {
   },
 
   methods: {
-      goTo(path) {
-          this.$router.push(path)
-      }
+    goTo(path) {
+      this.$router.push(path);
+    }
   }
 };
 </script>

@@ -47,7 +47,7 @@ export default {
 
   methods: {
     selected(services) {
-      this.$emit("servicesDetails", services.id);
+      this.$emit("serviceDetails", services.id);
     }
   }
 };

@@ -77,16 +77,16 @@ export default {
   },
 
   methods: {
-    changePage: function(page) {
+    changePage(page) {
       console.log(page); //eslint-disable-line
     },
 
-    search: function(word) {
+    search(word) {
       console.log(word); //eslint-disable-line
     },
 
-    goTo: function(id) {
-      this.$router.push(`/servicos/${id}`);
+    goTo(id) {
+      this.$router.push(`/servicos/${id}/cadastro`);
     }
   },
 

@@ -163,10 +163,19 @@
 </template>
 
 <script>
+import _ from "lodash";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
   name: "ClientForm",
+
+  props: {
+    client: {
+      type: Object,
+      required: false,
+      default: () => {}
+    }
+  },
 
   data() {
     return {
@@ -200,7 +209,15 @@ export default {
     quarter: { required }
   },
 
+  mounted() {
+    if (this.isEdition) {
+      this.fillForm();
+    }
+  },
+
   methods: {
+    fillForm() {},
+
     submit() {
       this.$v.$touch();
       if (!this.$v.invalid) {
@@ -211,6 +228,12 @@ export default {
     addContact() {
       this.contacts.push(this.contact);
       this.contact = "";
+    }
+  },
+
+  computed: {
+    isEdition() {
+      return !_.isEmpty(this.client);
     }
   }
 };

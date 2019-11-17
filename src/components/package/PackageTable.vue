@@ -44,7 +44,7 @@ export default {
 
   methods: {
     selected(packages) {
-      this.$emit("packagesDetails", packages.id);
+      this.$emit("packageDetails", packages.id);
     }
   }
 };

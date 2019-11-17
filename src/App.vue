@@ -11,6 +11,7 @@ $text: #260b0a;
 $text-light: #f2f2f2;
 $background: #bfaaa3;
 $error: red;
+$tertiary: #593d3a;
 
 $menu-item-color: #fff;
 $menu-item-hover-color: #fff;
