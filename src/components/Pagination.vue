@@ -20,9 +20,9 @@ export default {
   name: "Pagination",
 
   data() {
-      return {
-          current: 1
-      }
+    return {
+      current: 1
+    };
   },
 
   props: {
@@ -32,9 +32,9 @@ export default {
   },
 
   watch: {
-      current: function() {
-          this.$emit("changeCurrentPage", this.current);
-      }
+    current: function() {
+      this.$emit("changeCurrentPage", this.current);
+    }
   }
 };
 </script>

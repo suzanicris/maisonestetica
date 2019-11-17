@@ -34,6 +34,13 @@ import ServiceDetails from "@/views/ServiceDetails";
 import ServiceDetailsRegister from "@/views/ServiceDetailsRegister";
 import ServiceDetailsFinancial from "@/views/ServiceDetailsFinancial";
 
+import Report from "@/views/Report";
+import ReportService from "@/views/ReportService";
+import ReportProduct from "@/views/ReportProduct";
+import ReportEmployee from "@/views/ReportEmployee";
+import ReportClient from "@/views/ReportClient";
+import ReportFinancial from "@/views/ReportFinancial";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -194,6 +201,41 @@ const routes = [
             path: "financeiro",
             name: "detalhe-servico-financeiro",
             component: ServiceDetailsFinancial
+          }
+        ]
+      },
+      {
+        path: "/relatorio",
+        component: Report,
+        children: [
+          {
+            path: "",
+            redirect: "financeiro"
+          },
+          {
+            path: "financeiro",
+            name: "relatorio-financeiro",
+            component: ReportFinancial
+          },
+          {
+            path: "clientes",
+            name: "relatorio-clientes",
+            component: ReportClient
+          },
+          {
+            path: "funcionarios",
+            name: "relatorio-funcionarios",
+            component: ReportEmployee
+          },
+          {
+            path: "produtos",
+            name: "relatorio-produtos",
+            component: ReportProduct
+          },
+          {
+            path: "servicos",
+            name: "relatorio-servicos",
+            component: ReportService
           }
         ]
       }

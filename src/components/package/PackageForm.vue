@@ -63,6 +63,51 @@
         >
           Campo obrigatório
         </p>
+
+        <template v-show="services">
+          <div v-for="(service, index) in services" :key="index">
+            <div class="row space-between">
+              <h4>{{ index + 1 }} - {{ service.name }}</h4>
+              <b-button
+                icon-right="trash"
+                @click="removeService(index)"
+                outlined
+              />
+            </div>
+
+            <b-field grouped>
+              <b-field label="Preço normal" expanded>
+                <b-input v-model="service.normalPrice" disabled></b-input>
+              </b-field>
+              <b-field
+                label="Quantidade"
+                expanded
+                :type="{ 'is-danger': $v.services.quantify.$error }"
+                :message="{
+                  'Campo obrigatório':
+                    $v.finalCost.$error && !$v.services.quantify.required
+                }"
+              >
+                <b-input type="number" v-model="service.quantify"></b-input>
+              </b-field>
+              <b-field
+                label="Valor unitário"
+                expanded
+                :type="{ 'is-danger': $v.services.unitPrice.$error }"
+                :message="{
+                  'Campo obrigatório':
+                    $v.services.unitPrice.$error &&
+                    !$v.services.unitPrice.required
+                }"
+              >
+                <b-input v-model="service.unitPrice"></b-input>
+              </b-field>
+              <b-field label="Valor total" expanded>
+                <b-input v-model="service.cost" type="number"></b-input>
+              </b-field>
+            </b-field>
+          </div>
+        </template>
       </div>
     </div>
 
@@ -76,6 +121,7 @@
 </template>
 
 <script>
+//import _ from "lodash";
 import { required } from "vuelidate/lib/validators";
 
 export default {
@@ -84,7 +130,7 @@ export default {
   data() {
     return {
       name: "",
-      servicesList: [],
+      servicesList: ["Limpeza", "Massagem"],
       serviceSearch: "",
       services: [],
       cost: "",
@@ -96,7 +142,10 @@ export default {
 
   validations: {
     name: { required },
-    services: { required },
+    services: {
+      quantify: { required },
+      unitPrice: { required }
+    },
     cost: { required },
     finalCost: { required }
   },
@@ -111,9 +160,21 @@ export default {
 
     addService() {
       if (this.selected) {
-        this.services.push(this.selected);
+        this.services[this.services.length] = {
+          name: this.selected,
+          normalPrice: "",
+          quantify: "",
+          unitPrice: "",
+          cost: ""
+        };
         this.serviceSearch = "";
       }
+    },
+
+    removeService(index) {
+      this.services = this.services.filter(
+        service => service != this.services[index]
+      );
     }
   }
 };

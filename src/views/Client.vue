@@ -9,7 +9,7 @@
 
     <div class="container">
       <Search placeholder="Busque por nome ou CPF" @buscar="search" />
-      <ClientTable :clients="clients" @clientDetails="goTo" />
+      <ClientTable :clients="getClients" @clientDetails="goTo" />
       <Pagination
         :total="200"
         @changeCurrentPage="changePage"
@@ -21,6 +21,7 @@
 
 <script>
 import _ from "lodash";
+import { mapActions, mapGetters } from "vuex";
 import Search from "@/components/Search";
 import ClientTable from "@/components/client/ClientTable";
 import Pagination from "@/components/Pagination";
@@ -33,45 +34,13 @@ export default {
     Pagination
   },
 
-  data() {
-    return {
-      clients: [
-        {
-          id: 1,
-          name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
-        },
-        {
-          name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
-        },
-        {
-          name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
-        },
-        {
-          name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
-        },
-        {
-          name: "Cristiane Cecília Ferreira",
-          cpf: "351.927.784-09",
-          birthday: "12/04",
-          city: "Cáceres"
-        }
-      ]
-    };
+  mounted() {
+    this.$store.dispatch("loadClients");
   },
 
   methods: {
+    ...mapActions(["loadClients", "loadClient"]),
+
     changePage(page) {
       console.log(page); //eslint-disable-line
     },
@@ -81,13 +50,16 @@ export default {
     },
 
     goTo(id) {
+      this.$store.dispatch("loadClient", id);
       this.$router.push(`/clientes/${id}/cadastro`);
     }
   },
 
   computed: {
+    ...mapGetters(["getClients"]),
+
     isEmpty() {
-      return _.isEmpty(this.clients);
+      return _.isEmpty(this.getClients);
     }
   }
 };

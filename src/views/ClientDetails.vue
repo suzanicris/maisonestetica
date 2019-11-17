@@ -3,7 +3,7 @@
     <header class="row space-between">
       <hgroup>
         <h1>Cliente</h1>
-        <h2>Nome do cliente</h2>
+        <h2>{{ getClient.name }}</h2>
       </hgroup>
       <b-button
         class="is-primary"
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 import ClientAside from "@/components/client/ClientAside";
 
 export default {
@@ -37,7 +38,17 @@ export default {
   },
 
   mounted() {
-    //this.$route.params.id
+    if (this.isClientEmpty) {
+      this.$store.dispatch("loadClient", this.$route.params.id);
+    }
+  },
+
+  methods: {
+    ...mapActions(["loadClient"])
+  },
+
+  computed: {
+    ...mapGetters(["isClientEmpty", "getClient"])
   }
 };
 </script>

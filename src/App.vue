@@ -12,6 +12,7 @@ $text-light: #f2f2f2;
 $background: #bfaaa3;
 $error: red;
 $tertiary: #593d3a;
+$input-disabled-color: $link;
 
 $menu-item-color: #fff;
 $menu-item-hover-color: #fff;
@@ -64,6 +65,10 @@ h1 {
   font-weight: 700;
 }
 
+h2 {
+  font-weight: 100;
+}
+
 h3 {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -86,6 +91,10 @@ h3:not(:first-child) {
 
 .label:not(:last-child) {
   margin-bottom: 4px;
+}
+
+.help {
+  font-size: 10px;
 }
 
 /* SPACEAMOUNTS */

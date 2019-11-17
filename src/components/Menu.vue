@@ -45,7 +45,7 @@
         <b-menu-item
           icon="information-outline"
           label="Relatórios"
-          @click="goTo('/relatorio   ')"
+          @click="goTo('/relatorio')"
         ></b-menu-item>
       </b-menu-list>
     </b-menu>
