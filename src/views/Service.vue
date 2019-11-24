@@ -1,22 +1,24 @@
 <template>
-  <div class="section">
-    <div class="row space-between mb-16">
-      <h1>Cadastro de Serviço</h1>
-      <b-button type="is-secondary" @click="$router.push('/servicos/novo')"
-        >Adicionar novo</b-button
-      >
-    </div>
-
+  <section class="section">
     <div class="container">
-      <Search placeholder="Busque serviço por nome" @buscar="search" />
-      <ServiceTable :services="services" @serviceDetails="goTo" />
-      <Pagination
-        :total="200"
-        @changeCurrentPage="changePage"
-        v-show="!isEmpty"
-      />
+      <div class="row space-between mb-16">
+        <h1>Cadastro de Serviço</h1>
+        <b-button type="is-secondary" @click="$router.push('/servicos/novo')"
+          >Adicionar novo</b-button
+        >
+      </div>
+
+      <div class="box">
+        <Search placeholder="Busque serviço por nome" @buscar="search" />
+        <ServiceTable :services="services" @serviceDetails="goTo" />
+        <Pagination
+          :total="200"
+          @changeCurrentPage="changePage"
+          v-show="!isEmpty"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

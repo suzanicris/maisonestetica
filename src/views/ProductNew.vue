@@ -1,13 +1,15 @@
 <template>
-  <div class="section">
-    <div class="row space-between mb-16">
-      <h1>Adicionar novo produto</h1>
-    </div>
-
+  <section class="section">
     <div class="container">
-      <ProductForm @productSubmit="submit" />
+      <div class="row space-between mb-16">
+        <h1>Adicionar novo produto</h1>
+      </div>
+
+      <div class="box">
+        <ProductForm @productSubmit="submit" />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

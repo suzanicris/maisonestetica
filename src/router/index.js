@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from "@/views/Home";
+import Resume from "@/views/Resume";
 import Schedule from "@/views/Schedule";
 
 import Client from "@/views/Client";
@@ -47,9 +48,13 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "home",
     component: Home,
     children: [
+      {
+        path: "/",
+        name: "resume",
+        component: Resume
+      },
       {
         path: "/agendamento",
         name: "agenda",

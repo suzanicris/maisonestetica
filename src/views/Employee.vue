@@ -1,22 +1,26 @@
 <template>
-  <div class="section">
-    <div class="row space-between mb-16">
-      <h1>Cadastro de Funcionário</h1>
-      <b-button type="is-secondary" @click="$router.push('/funcionarios/novo')"
-        >Adicionar novo</b-button
-      >
-    </div>
-
+  <section class="section">
     <div class="container">
-      <Search placeholder="Busque funcionário por nome" @buscar="search" />
-      <EmployeeTable :employees="employees" @employeeDetails="goTo" />
-      <Pagination
-        :total="200"
-        @changeCurrentPage="changePage"
-        v-show="!isEmpty"
-      />
+      <div class="row space-between mb-16">
+        <h1>Cadastro de Funcionário</h1>
+        <b-button
+          type="is-secondary"
+          @click="$router.push('/funcionarios/novo')"
+          >Adicionar novo</b-button
+        >
+      </div>
+
+      <div class="box">
+        <Search placeholder="Busque funcionário por nome" @buscar="search" />
+        <EmployeeTable :employees="employees" @employeeDetails="goTo" />
+        <Pagination
+          :total="200"
+          @changeCurrentPage="changePage"
+          v-show="!isEmpty"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

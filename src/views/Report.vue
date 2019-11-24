@@ -1,18 +1,20 @@
 <template>
-  <div class="section">
-    <header class="row space-between">
-      <h1>Relatórios</h1>
-    </header>
+  <section class="section">
+    <div class="container">
+      <header class="row space-between">
+        <h1>Relatórios</h1>
+      </header>
 
-    <div class="columns">
-      <div class="column is-one-quarter">
-        <ReportAside />
-      </div>
-      <div class="column">
-        <router-view></router-view>
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <ReportAside />
+        </div>
+        <div class="column">
+          <router-view></router-view>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

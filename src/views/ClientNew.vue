@@ -1,13 +1,15 @@
 <template>
-  <div class="section">
-    <div class="row space-between mb-16">
-      <h1>Adicionar novo cliente</h1>
-    </div>
-
+  <section class="section">
     <div class="container">
-      <ClientForm @clientSubmit="submit" />
+      <div class="row space-between mb-16">
+        <h1>Adicionar novo cliente</h1>
+      </div>
+
+      <div class="box">
+        <ClientForm @clientSubmit="submit" />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

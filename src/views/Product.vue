@@ -1,22 +1,24 @@
 <template>
-  <div class="section">
-    <div class="row space-between mb-16">
-      <h1>Cadastro de Produtos</h1>
-      <b-button type="is-secondary" @click="$router.push('/produtos/novo')"
-        >Adicionar novo</b-button
-      >
-    </div>
-
+  <section class="section">
     <div class="container">
-      <Search placeholder="Busque produto por nome" @buscar="search" />
-      <ProductTable :products="products" @productDetails="goTo" />
-      <Pagination
-        :total="200"
-        @changeCurrentPage="changePage"
-        v-show="!isEmpty"
-      />
+      <div class="row space-between mb-16">
+        <h1>Cadastro de Produtos</h1>
+        <b-button type="is-secondary" @click="$router.push('/produtos/novo')"
+          >Adicionar novo</b-button
+        >
+      </div>
+
+      <div class="box">
+        <Search placeholder="Busque produto por nome" @buscar="search" />
+        <ProductTable :products="products" @productDetails="goTo" />
+        <Pagination
+          :total="200"
+          @changeCurrentPage="changePage"
+          v-show="!isEmpty"
+        />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

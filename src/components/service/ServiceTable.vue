@@ -8,7 +8,6 @@
   >
     >
     <template slot-scope="props">
-      <b-table-column field="id" label="Id">{{ props.row.id }}</b-table-column>
       <b-table-column field="name" label="Serviço">{{
         props.row.name
       }}</b-table-column>

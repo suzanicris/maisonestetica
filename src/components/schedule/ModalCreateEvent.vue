@@ -3,6 +3,7 @@
     name="create-event"
     @before-open="beforeOpen"
     height="auto"
+    :maxWidth="600"
     class="modal-padding"
   >
     <b-icon

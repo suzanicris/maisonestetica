@@ -42,7 +42,7 @@ $colors: (
 body {
   background-color: #f2f2f2;
 
-  .container {
+  .box {
     background-color: white;
     border: 1px solid #bfaaa3;
     border-radius: 8px;
@@ -123,5 +123,9 @@ $sides: (top, bottom, left, right); // Leave this variable alone
       padding-#{$side}: #{$space}px !important;
     }
   }
+}
+
+tbody tr {
+  cursor: pointer;
 }
 </style>
