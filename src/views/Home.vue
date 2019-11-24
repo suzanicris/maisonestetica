@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Nav />
-    <div class="columns">
+    <div class="columns is-gapless">
       <Menu />
       <div class="column">
         <router-view />

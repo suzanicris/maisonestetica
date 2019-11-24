@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import Home from "@/views/Home";
+import Schedule from "@/views/Schedule";
 
 import Client from "@/views/Client";
 import ClientNew from "@/views/ClientNew";
@@ -49,6 +50,11 @@ const routes = [
     name: "home",
     component: Home,
     children: [
+      {
+        path: "/agendamento",
+        name: "agenda",
+        component: Schedule
+      },
       {
         path: "/clientes",
         name: "clientes",

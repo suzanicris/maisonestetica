@@ -1,0 +1,28 @@
+.close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  margin: 8px;
+  color: white;
+}
+
+.modal-title {
+  background-color: #593d3a;
+  color: #fff;
+  font-weight: bold;
+  padding: 16px 24px;
+}
+
+.modal-content {
+  width: auto;
+  padding: 16px 24px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 16px 24px;
+}
